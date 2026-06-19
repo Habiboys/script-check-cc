@@ -9,9 +9,8 @@
  *   GitHub Actions:    otomatis setiap jam (lihat README.md)
  * =====================================================
  */
-//aa
 const { runChecks, detectDuplicates, TIMEOUT_MS, SIMILARITY_THRESHOLD } = require("./lib/checker");
-const { loadStudentsFromSheet, upsertCheckerResults } = require("./lib/sheets");
+const { loadStudentsFromSheet, upsertCheckerResults, getServiceAccountEmail } = require("./lib/sheets");
 
 const STUDENTS = [
   { nim: "2411522035", name: "Muhammad Zada Aufa Ningrat", url_fe: "https://komputasi-awan-2026-4.as.r.appspot.com", url_be: "http://34.101.43.24:3001" },
@@ -69,6 +68,7 @@ async function loadStudents() {
   }
 
   log.ok("Mode sheets: membaca dari Google Spreadsheet...");
+  log.ok(`Service account: ${getServiceAccountEmail()}`);
   const students = await loadStudentsFromSheet();
   log.ok(`Ditemukan ${students.length} mahasiswa (dedupe per NIM, submission terbaru)`);
   return students;
