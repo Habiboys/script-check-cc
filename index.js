@@ -175,8 +175,8 @@ async function main() {
 
   if (useSheetsMode()) {
     log.section("Menulis hasil ke Google Spreadsheet...");
-    const { updated, inserted, checkedAt } = await upsertCheckerResults(results);
-    log.ok(`Selesai: ${updated} baris diupdate, ${inserted} baris baru (Terakhir Dicek: ${checkedAt})`);
+    const { updated, inserted, checkedAt, sheetName } = await upsertCheckerResults(results);
+    log.ok(`Selesai: ${updated} baris di tab "${sheetName}" (Terakhir Dicek: ${checkedAt})`);
   }
 
   log.header("Selesai");
