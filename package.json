@@ -1,0 +1,17 @@
+{
+  "name": "cc-student-checker",
+  "version": "1.0.0",
+  "description": "Checker FE/BE mahasiswa Cloud Computing 2026 dengan integrasi Google Sheets",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node index.js",
+    "check:sheets": "node index.js --sheets"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}
